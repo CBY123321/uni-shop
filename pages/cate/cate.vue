@@ -1,8 +1,6 @@
 <template>
   <view class="container">
-    <view class="search">
-
-    </view>
+    <search @click='search'></search>
     <view class="cate">
       <view class="left">
         <view :class="['type',(item.id==active)?'active':'']" v-for="item,i in left" :key='i' @click="change(i)">
@@ -11,11 +9,11 @@
       </view>
       <scroll-view scroll-y class="scoll">
         <view class="right">
-          <view class="brand" v-for="item,i in brandPhone" :key='i'>
+          <view class="brand" v-for="item,i in brand" :key='i'>
             <image :src="item.picture" mode=""></image>{{item.brand}}
           </view>
-        
-     
+
+
         </view>
       </scroll-view>
 
@@ -24,7 +22,11 @@
 </template>
 
 <script>
+  import search from '../../components/search.vue'
   export default {
+    components: {
+      search
+    },
     data() {
       return {
         left: [{
@@ -40,16 +42,41 @@
           name: '耳机',
           id: 2
         }, ],
-        active: 0,brandPhone:[]
+        active: 0,
+        brand: [],
+        tmpData: []
       }
     },
-    created(){
+    created() {
       this.getCate()
     },
+    watch: {
+      active(newval) {
+        switch (newval) {
+          case 0:
+            this.brand = this.tmpData.phone;
+            break;
+          case 1:
+            this.brand = this.tmpData.computer;
+            break;
+          case 2:
+            this.brand = this.tmpData.ear;
+            break;
+        }
+      }
+    },
     methods: {
-      async getCate(){
-       const {data:res}=await uni.$http.get('/my/getCate');
-       this.brandPhone=res.message.data
+      search() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
+      },
+      async getCate() {
+        const {
+          data: res
+        } = await uni.$http.get('/my/getCate');
+        this.tmpData = res.message;
+        this.brand = res.message.phone
       },
       change(e) {
         this.active = e
@@ -125,7 +152,7 @@
           .brand {
             // margin: 20rpx;
             width: 50%;
-            height: 33%;
+            height: 25%;
             display: flex;
             justify-content: center;
             align-items: center;

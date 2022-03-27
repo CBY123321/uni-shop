@@ -130,33 +130,35 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var search = function search() {__webpack_require__.e(/*! require.ensure | components/search */ "components/search").then((function () {return resolve(__webpack_require__(/*! ../../components/search.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    search: search },
+
   data: function data() {
     return {
       left: [{
@@ -172,16 +174,41 @@ var _default =
         name: '耳机',
         id: 2 }],
 
-      active: 0, brandPhone: [] };
+      active: 0,
+      brand: [],
+      tmpData: [] };
 
   },
   created: function created() {
     this.getCate();
   },
+  watch: {
+    active: function active(newval) {
+      switch (newval) {
+        case 0:
+          this.brand = this.tmpData.phone;
+          break;
+        case 1:
+          this.brand = this.tmpData.computer;
+          break;
+        case 2:
+          this.brand = this.tmpData.ear;
+          break;}
+
+    } },
+
   methods: {
+    search: function search() {
+      uni.navigateTo({
+        url: '/subpkg/search/search' });
+
+    },
     getCate: function getCate() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _yield$uni$$http$get, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
+
                   uni.$http.get('/my/getCate'));case 2:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;
-                _this.brandPhone = res.message.data;case 5:case "end":return _context.stop();}}}, _callee);}))();
+                _this.tmpData = res.message;
+                _this.brand = res.message.phone;case 6:case "end":return _context.stop();}}}, _callee);}))();
     },
     change: function change(e) {
       this.active = e;
