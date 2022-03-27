@@ -12,8 +12,12 @@
 	}
 </script>
 
-<style>
+<style lang="less">*{
+    box-sizing: border-box;
+  }
 	/*每个页面公共css */page{
     background-color: #F2F2F2;
+    height: 100%;
   }
+  
 </style>

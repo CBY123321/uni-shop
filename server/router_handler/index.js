@@ -1,20 +1,30 @@
 const db = require("../db/index");
 // 轮播图
 exports.getSwiperList = (req, res) => {
-  sql='select * from swiper'
-    db.query(sql,null,(err,results)=>{
+    sql = 'select * from swiper'
+    db.query(sql, null, (err, results) => {
       res.cc(results, 0)
     })
   },
   // 获取首页数据，以分页形式展示
   exports.getData = (req, res) => {
     sql = 'select * from message';
-    db.query(sql, req.query.page , (err, results) => {
+    db.query(sql, req.query.page, (err, results) => {
       var size = 4;
-      var start =(req.query.page ||0)* size;
+      var start = (req.query.page || 0) * size;
       var end = start + size;
-      if(start>results.length){res.cc('none',404)}else{ res.cc(results.slice(start,end), 0)}
-     
-
+      if (start > results.length) {
+        res.cc('none', 404)
+      } else {
+        res.cc(results.slice(start, end), 0)
+      }
     })
   }
+// 获取分类页面数据
+exports.getCate = (req, res) => {
+  sql = 'select * from brand where type=1';
+  db.query(sql, null, (err, results) => {
+    
+    res.cc({data:results}, 0)
+  })
+}

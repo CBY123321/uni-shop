@@ -5,8 +5,8 @@
     },
     "setting": {
         "urlCheck": false,
-        "es6": true,
-        "enhance": true,
+        "es6": false,
+        "enhance": false,
         "postcss": true,
         "preloadBackgroundData": false,
         "minified": true,
@@ -38,8 +38,7 @@
         "disableUseStrict": false,
         "showES6CompileOption": false,
         "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true,
-        "minifyWXML": true
+        "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
     "libVersion": "",

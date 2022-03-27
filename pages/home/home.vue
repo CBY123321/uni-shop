@@ -156,6 +156,15 @@
       }
       .msg {
         padding: 10rpx;
+       .desc{
+         width: 172px;
+         height: 45px;
+         text-overflow: ellipsis;
+         overflow: hidden;
+         display: -webkit-box;
+       -webkit-box-orient:vertical;
+       -webkit-line-clamp:2
+       }
       }
       .price {
         position: absolute;
@@ -171,18 +180,15 @@
        justify-content: center;
         position:absolute;
         right: 20rpx;
-        bottom:20rpx;
+        bottom:15rpx;
         background-color: #3ADF00;
         border-radius: 50rpx;
-        font-size: 13px;
-        // border: 1px solid black;
-        color: white;
         
+        font-size: 13px;
+        border: 1px solid #D8D8D8;
+        color: white;
       }
-
-      .desc {
-        // padding-left: 10rpx;
-      }
+     
     }
   }
 </style>
