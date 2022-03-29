@@ -26,7 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+   position: sticky;
+     top: 0;
+     z-index: 999;
+  
     .search {
       .placeholder {
         font-size: 18px;

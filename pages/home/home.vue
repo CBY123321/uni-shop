@@ -1,5 +1,9 @@
 <template>
-  <view>
+  <view class="container">
+
+    <search @click='search'></search>
+
+
     <!-- 轮播图区域 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="(item, i) in swiperList" :key="i">
@@ -29,7 +33,11 @@
 </template>
 
 <script>
+  import search from '../../components/search.vue';
   export default {
+    components: {
+      search
+    },
     data() {
       return {
         swiperList: [],
@@ -64,7 +72,11 @@
 
     },
     methods: {
-
+      search() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
+      },
       // nav-item 项被点击时候的事件处理函数
       navClickHandler(item) {
         // 判断点击的是哪个 nav
@@ -102,93 +114,106 @@
 </script>
 
 <style lang="less">
-  swiper {
-    height: 330rpx;
+  .container {
+    height: 100%;
 
-    .swiper-item,
-    image {
-      width: 100%;
-      height: 100%;
-    }
-  }
 
-  .nav-list {
-    display: flex;
-    justify-content: space-around;
-    margin: 15px 0;
+    swiper {
+      height: 330rpx;
 
-    .nav-img {
-      width: 80rpx;
-      height: 80rpx;
-    }
 
-    i {
-      margin-left: 5px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #6E6E6E;
-    }
-  }
 
-  .content {
-    display: flex;
-    box-sizing: border-box;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    .content-box {
-      position: relative;
-      background-color: white;
-      border-radius: 30rpx;
-      // background-color: red;
-      align-items: center;
-      justify-content: center;
-      width: 350rpx;
-      height: 550rpx;
-      margin-top: 30rpx;
-      border: 1px solid #424242;
+      .swiper-item,
       image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+
+      .nav-img {
+        width: 80rpx;
+        height: 80rpx;
+      }
+
+      i {
+        margin-left: 5px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #6E6E6E;
+      }
+    }
+
+    .content {
+      display: flex;
+      box-sizing: border-box;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .content-box {
+        position: relative;
+        background-color: white;
+        border-radius: 30rpx;
+        // background-color: red;
+        align-items: center;
+        justify-content: center;
         width: 350rpx;
-        height: 350rpx;
-        border-radius: 30rpx 30rpx 0 0;
-        margin-bottom: 30rpx;
-        // margin: 30rpx;
-        // margin-left: 26rpx;
+        height: 550rpx;
+        margin-top: 30rpx;
+        border: 1px solid #424242;
+
+        image {
+          width: 350rpx;
+          height: 350rpx;
+          border-radius: 30rpx 30rpx 0 0;
+          margin-bottom: 30rpx;
+          // margin: 30rpx;
+          // margin-left: 26rpx;
+        }
+
+        .msg {
+          padding: 10rpx;
+
+          .desc {
+            width: 172px;
+            height: 45px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2
+          }
+        }
+
+        .price {
+          position: absolute;
+          left: 15rpx;
+          bottom: 20rpx;
+          color: #Ff5500
+        }
+
+        .detail {
+          width: 150rpx;
+          height: 50rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 20rpx;
+          bottom: 15rpx;
+          background-color: #3ADF00;
+          border-radius: 50rpx;
+
+          font-size: 13px;
+          border: 1px solid #D8D8D8;
+          color: white;
+        }
+
       }
-      .msg {
-        padding: 10rpx;
-       .desc{
-         width: 172px;
-         height: 45px;
-         text-overflow: ellipsis;
-         overflow: hidden;
-         display: -webkit-box;
-       -webkit-box-orient:vertical;
-       -webkit-line-clamp:2
-       }
-      }
-      .price {
-        position: absolute;
-        left: 15rpx;
-        bottom: 20rpx;
-        color: #Ff5500
-      }
-      .detail{
-        width: 150rpx;
-        height: 50rpx;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-        position:absolute;
-        right: 20rpx;
-        bottom:15rpx;
-        background-color: #3ADF00;
-        border-radius: 50rpx;
-        
-        font-size: 13px;
-        border: 1px solid #D8D8D8;
-        color: white;
-      }
-     
     }
   }
 </style>

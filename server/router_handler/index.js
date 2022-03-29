@@ -23,7 +23,7 @@ exports.getSwiperList = (req, res) => {
 // 获取分类页面数据
 exports.getCate = (req, res) => {
   sql = "select * from brand where type like '%1%';";
-  sql +=  "select * from brand where type like '%2%';";
+  sql += "select * from brand where type like '%2%';";
   sql += "select * from brand where type like '%3%';";
   db.query(sql, null, (err, results) => {
 
@@ -32,5 +32,12 @@ exports.getCate = (req, res) => {
       computer: results[1],
       ear: results[2],
     }, 0)
+  })
+}
+exports.getSearchList = (req, res) => {
+  sql =
+    "SELECT * FROM message where concat(message.desc,message.CPU,message.maker,message.name) like '%" + req.query.list + "%'";
+  db.query(sql, null, (err, results) => {
+    res.cc(results,0)
   })
 }
