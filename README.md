@@ -9,4 +9,7 @@
     4.搜索框实现防抖功能和自动聚焦功能
     5."SELECT * FROM message where CPU like '%" + req.query.list + "%'";更深的理解了字符串拼接
     6.对computed属性有了更深的认识，学习使用ES6新语法set
+    7.优化设计：在onLoad（created）（Setup）之前，list值为[],因此会出现闪烁，给展示区域增加v-if即可
+    <view v-if="item.name"> </view>
 
+     

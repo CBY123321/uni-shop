@@ -36,8 +36,22 @@ exports.getCate = (req, res) => {
 }
 exports.getSearchList = (req, res) => {
   sql =
-    "SELECT * FROM message where concat(message.desc,message.CPU,message.maker,message.name) like '%" + req.query.list + "%'";
+    "SELECT * FROM message where concat(message.desc,message.CPU,message.maker,message.name) like '%" + req.query
+    .list + "%'";
   db.query(sql, null, (err, results) => {
-    res.cc(results,0)
+    res.cc(results, 0)
+  })
+}
+exports.getGoodsList = (req, res) => {
+  var page = req.query.page || 0;
+  var each = 6;
+  var start = page * each;
+  var end = start + each
+  sql = 'SELECT * FROM `uni-ele`.message where brand=? or id=? or cate=?;'
+  db.query(sql, [req.query.uid, req.query.id, req.query.cate], (err, results) => {
+    if (start > results.length) res.cc('没有更多啦!', 404)
+    else {
+      res.cc(results.slice(start, end), 0)
+    }
   })
 }

@@ -25,7 +25,7 @@
         <view class="msg"> <text class="desc">{{item.desc}}</text>
           <br />
           <text class="price">￥{{item.price}}</text>
-          <view class="detail">查看详情 </view>
+          <view class="detail" @click="toGoods(item.id)">查看详情 </view>
         </view>
       </view>
     </view>
@@ -48,13 +48,16 @@
         computer: [],
         navList: [{
           url: '/static/table/computer.png',
-          name: '电脑'
+          name: '电脑',
+          type:2
         }, {
           url: '/static/table/ear.png',
-          name: '耳机'
+          name: '耳机',
+          type:3
         }, {
           url: '/static/table/phone.png',
-          name: '手机'
+          name: '手机',
+          type:1
         }, {
           url: '/static/table/cart.png',
           name: '分类'
@@ -72,6 +75,11 @@
 
     },
     methods: {
+      toGoods(e){
+        uni.navigateTo({
+          url:'/subpkg/goods_list/goods_list?id='+e
+        })
+      },
       search() {
         uni.navigateTo({
           url: '/subpkg/search/search'
@@ -84,6 +92,10 @@
           uni.switchTab({
             url: '/pages/cate/cate'
           })
+        }else{
+         uni.navigateTo({
+           url:'/subpkg/goods_list/goods_list?type='+item.type
+         }) 
         }
       },
       async getSWiperList() {

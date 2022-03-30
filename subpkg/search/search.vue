@@ -124,6 +124,7 @@
 
         text {
           font-size: 18px;
+          color: #0B6121;
         }
 
       }

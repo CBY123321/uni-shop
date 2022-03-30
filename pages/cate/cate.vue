@@ -9,7 +9,7 @@
       </view>
       <scroll-view scroll-y class="scoll">
         <view class="right">
-          <view class="brand" v-for="item,i in brand" :key='i'>
+          <view class="brand" v-for="item,i in brand" :key='i' @click="toList(item.bid)">
             <image :src="item.picture" mode=""></image>{{item.brand}}
           </view>
 
@@ -80,6 +80,11 @@
       },
       change(e) {
         this.active = e
+      },
+      toList(e){
+        uni.navigateTo({
+          url:'../../subpkg/goods_list/goods_list?uid='+e
+        })
       }
     }
   }
