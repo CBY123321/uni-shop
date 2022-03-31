@@ -17,7 +17,7 @@
         <view class="price">
           ￥<text>{{item.price}}</text>
         </view>
-        <view class="detail">
+        <view class="detail" @click="toDetail(item.id)">
           查看详情
         </view>
       </view>
@@ -39,6 +39,11 @@
       this.getGoodsList()
     },
     methods: {
+      toDetail(e){
+        uni.navigateTo({
+          url:'../goods_detail/goods_detail?id='+e
+        })
+      },
       async getGoodsList() {
         const {
           data: res

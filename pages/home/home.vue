@@ -77,7 +77,7 @@
     methods: {
       toGoods(e){
         uni.navigateTo({
-          url:'/subpkg/goods_list/goods_list?id='+e
+          url:'/subpkg/goods_detail/goods_detail?id='+e
         })
       },
       search() {

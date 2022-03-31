@@ -6,5 +6,6 @@ router.get('/getData',user_handler.getData)
 router.get('/getCate',user_handler.getCate)
 router.get('/getSearchList',user_handler.getSearchList)
 router.get('/getGoodsList',user_handler.getGoodsList)
-
+router.get('/getDetailSwiper',user_handler.getDetailSwiper)
+router.get('/getDetailMsg',user_handler.getDetailMsg)
 module.exports = router;

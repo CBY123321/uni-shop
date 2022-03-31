@@ -1,5 +1,29 @@
 <template>
   <view class="container">
+    <swiper class="swiper">
+      <swiper-item v-for="item,i in detailSwiper" :key=i>
+        <image :src="item.img" mode=""></image>
+      </swiper-item>
+    </swiper>
+    <view class="params">
+      <image :src="params" mode=""></image>
+    </view>
+    <view class="detail">
+      <view class="price">
+        ￥<text>{{price}}</text>
+      </view>
+      <view class="desc">
+        <text>{{desc}}</text>
+      </view>
+      <view class="value">
+        <view class="cpu">
+          {{CPU}}
+        </view>
+        <view class="feature">
+          {{feature}}
+        </view>
+      </view>
+    </view>
 
     <uni-goods-nav class="nav" :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onClick"
       @buttonClick="buttonClick" />
@@ -10,6 +34,19 @@
   export default {
     data() {
       return {
+        id: 0,
+        price: 0,
+        desc: '',
+        CPU: '',
+        feature: '',
+        params: '',
+        detailSwiper: [{
+          img: ''
+        }, {
+          img: ''
+        }, {
+          img: ''
+        }],
         options: [{
           icon: 'shop',
           text: '品牌',
@@ -31,7 +68,31 @@
         ]
       };
     },
+    onLoad(e) {
+      this.id = e.id
+      this.getDetailMsg();
+    },
     methods: {
+      async getDetailMsg() {
+        const {
+          data: res
+        } = await uni.$http.get('/my/getDetailMsg', {
+          id: this.id
+        })
+        console.log(res)
+        this.detailSwiper[0].img = res.message[0].img
+        this.detailSwiper[1].img = res.message[0].img2
+        this.detailSwiper[2].img = res.message[0].img3
+        this.price = res.message[0].price
+        this.desc = res.message[0].desc
+        this.feature = res.message[0].feature
+        this.params = res.message[0].params
+        this.CPU = res.message[0].maker + res.message[0].CPU
+
+
+
+      },
+
       onClick() {
         console.log(1)
       },
@@ -43,12 +104,76 @@
 </script>
 
 <style lang="less">
-.container{
-  .nav{
-    width:100%;
-    position: fixed;
-    bottom:0px;
-    
+  .container {
+    background-color: white;
+    padding-bottom: 100rpx;
+
+    .swiper {
+      // background-color: red;
+      height: 750rpx;
+
+      image {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .params {
+      margin-top: 10px;
+
+      image {
+        width: 100%;
+        height: 140px;
+
+      }
+    }
+
+    .detail {
+      background-color: white;
+      // border:1px solid #69ad52;
+      border-radius: 10px;
+      padding: 0px 5px;
+      margin: 0px 8px;
+
+      .price {
+        font-size: 15px;
+
+        color: #Ff5500;
+        margin-bottom: 10px;
+
+        text {
+          font-size: 25px;
+        }
+      }
+
+      .desc {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .value {
+        display: flex;
+        justify-content: center;
+color: #BDBDBD;
+        .cpu {
+          padding: 0 10px;
+          border-right: 1px solid #BDBDBD;
+        }
+
+        .feature {
+          padding: 0 10px;
+        }
+      }
+    }
+
+
+
+    .nav {
+      width: 100%;
+      position: fixed;
+      bottom: 0px;
+
+    }
   }
-}
 </style>

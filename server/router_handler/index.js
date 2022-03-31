@@ -55,3 +55,26 @@ exports.getGoodsList = (req, res) => {
     }
   })
 }
+exports.getDetailSwiper = (req, res) => {
+  sql =
+    "select img,img2,img3 from message where id=?";
+  db.query(sql, req.query.id, (err, results) => {
+    res.cc([{
+      img: results[0]
+        .img
+    }, {
+      img: results[0]
+        .img2
+    }, {
+      img: results[0]
+        .img3
+    }], 0)
+  })
+}
+exports.getDetailMsg = (req, res) => {
+  sql =
+    "SELECT * FROM message where id=?";
+  db.query(sql, req.query.id, (err, results) => {
+    res.cc(results, 0)
+  })
+}

@@ -2091,7 +2091,7 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 100:
+/***/ 102:
 /*!**************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**************************************************************************/
@@ -10831,7 +10831,7 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 78:
+/***/ 80:
 /*!***************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
   \***************************************************************************************/
@@ -10839,9 +10839,9 @@ function resolveLocaleChain(locale) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 79));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 80));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 81));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 81));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 82));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 83));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10849,7 +10849,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 8
 
 /***/ }),
 
-/***/ 79:
+/***/ 81:
 /*!**************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
   \**************************************************************************************/
@@ -10860,7 +10860,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
 
 /***/ }),
 
-/***/ 80:
+/***/ 82:
 /*!*******************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
   \*******************************************************************************************/
@@ -10871,7 +10871,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
 
 /***/ }),
 
-/***/ 81:
+/***/ 83:
 /*!*******************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
   \*******************************************************************************************/
@@ -10882,7 +10882,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-go
 
 /***/ }),
 
-/***/ 89:
+/***/ 91:
 /*!*****************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
   \*****************************************************************************************/
@@ -10890,9 +10890,9 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-go
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 90));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 91));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 92));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 92));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 93));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 94));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10900,7 +10900,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 9
 
 /***/ }),
 
-/***/ 90:
+/***/ 92:
 /*!****************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
   \****************************************************************************************/
@@ -10911,7 +10911,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 91:
+/***/ 93:
 /*!*********************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
   \*********************************************************************************************/
@@ -10922,7 +10922,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 92:
+/***/ 94:
 /*!*********************************************************************************************!*\
   !*** E:/小程序/uni-app/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
   \*********************************************************************************************/
