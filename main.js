@@ -1,6 +1,6 @@
 import App from './App'
 import { $http } from '@escook/request-miniprogram'
-
+import store from './store/index.js'
 uni.$http = $http
 // 配置请求根路径
 $http.baseUrl = 'http://127.0.0.1:5000'
@@ -26,7 +26,7 @@ import Vue from 'vue'
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({
-    ...App
+    ...App,store
 })
 app.$mount()
 // #endif

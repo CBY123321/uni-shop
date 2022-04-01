@@ -24,13 +24,17 @@
         </view>
       </view>
     </view>
-
     <uni-goods-nav class="nav" :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onClick"
       @buttonClick="buttonClick" />
   </view>
 </template>
 
 <script>
+  import {
+    mapState,
+    mapMutations,
+    mapGetters
+  } from 'vuex';
   export default {
     data() {
       return {
@@ -53,6 +57,7 @@
         }, {
           icon: 'cart',
           text: '购物车',
+          infoBackgroundColor	:'#00ff00',
           info: 0
         }],
         buttonGroup: [{
@@ -71,8 +76,10 @@
     onLoad(e) {
       this.id = e.id
       this.getDetailMsg();
+
     },
     methods: {
+      ...mapMutations('cart', ['getCart']),
       async getDetailMsg() {
         const {
           data: res
@@ -88,17 +95,35 @@
         this.feature = res.message[0].feature
         this.params = res.message[0].params
         this.CPU = res.message[0].maker + res.message[0].CPU
-
-
-
       },
-
       onClick() {
         console.log(1)
       },
       buttonClick(e) {
-        console.log(e)
+        if (e.index == 0) {
+          const good = {
+            id: this.id,
+            count: 1
+          };
+          this.getCart(good)
+        }
       }
+    },
+    watch: {
+      getCount: {
+           // handler 属性用来定义侦听器的 function 处理函数
+           handler(newVal) {
+              const findResult = this.options.find(x => x.text === '购物车')
+              if (findResult) {
+                 findResult.info = newVal
+              }
+           },
+           // immediate 属性用来声明此侦听器，是否在页面初次加载完毕后立即调用
+           immediate: true
+        }
+    },
+    computed: {
+      ...mapGetters('cart', ['getCount'])
     }
   }
 </script>
@@ -155,7 +180,8 @@
       .value {
         display: flex;
         justify-content: center;
-color: #BDBDBD;
+        color: #BDBDBD;
+
         .cpu {
           padding: 0 10px;
           border-right: 1px solid #BDBDBD;
