@@ -1,16 +1,23 @@
 <template>
   <view class="container">
+    <Address></Address>
     <view class="title">
       <uni-icons type="cart" color="#088A08" size="30"></uni-icons>
       <text>购物车</text>
     </view>
+
     <view class="cart" v-for="item,i in list" :key='i'>
       <view class="cart_top">
-        <uni-icons type="shop-filled" size="30" />
-        <text>{{item.brand}}</text>
+        <view class="left">
+          <uni-icons type="shop-filled" size="30" />
+          <text>{{item.brand}}</text>
+        </view>
+        <view class="right">
+          <uni-icons type='trash-filled' size='25' color="#A4A4A4" @click="trash(item.id)"></uni-icons>
+        </view>
       </view>
       <view class="cart_bottom">
-        <radio :value="item.id" :checked="item.state==true?true:false" @click="cancel(item.id)" />
+        <radio :value="item.id" :checked="item.state==1?true:false" @click="cancel(item.id)" />
         <image :src="item.img" mode=""></image>
         <view class="desc">
           <view class="top">
@@ -23,6 +30,7 @@
         </view>
       </view>
     </view>
+
     <view class="total">
       <view class="total_left">
         <radio @click='this.checkAll' :checked="allCheck"></radio>
@@ -40,9 +48,19 @@
 </template>
 
 <script>
+  import Address from '../../components/address.vue'
   export default {
+    components:{
+      Address
+    },
     data() {
       return {
+        options: [{
+          text: '取消',
+          style: {
+            backgroundColor: '#007aff'
+          }
+        }],
         list: [],
         price: 0,
         allCheck: false
@@ -52,12 +70,34 @@
     onShow() {
       this.getCartMsg()
     },
-    methods: {      
-      countChange(e){
+    methods: {
+      trash(e) {
+        console.log(e)
+        this.list = this.list.filter(x => x.id != e)
+        console.log(this.list)
+        if(this.list.length==0){
+          uni.removeStorageSync('cart')
+        }
+       else{
+         for (var i in this.list) {
+          const goods = {
+            id: this.list[i].id,
+            count: this.list[i].count,
+            state: 0
+          }
+          let changeList = []
+          changeList.push(goods)
+          uni.setStorageSync('cart', JSON.stringify(changeList))
+
+        }
+       } 
+        this.$forceUpdate()
+      },
+      countChange(e) {
         // console.log(e)
-       this.$nextTick(()=>{
-         this.getCount()
-       }) 
+        this.$nextTick(() => {
+          this.getCount()
+        })
       },
       getCount() {
         var a = 0
@@ -82,6 +122,7 @@
         // this.$forceUpdate();
       },
       async getCartMsg() {
+        this.list = []
         const a = JSON.parse(uni.getStorageSync('cart'))
         console.log(a)
 
@@ -111,13 +152,16 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .container {
     margin-bottom: 120rpx;
 
     .title {
+      
+      display: flex;
+      align-items: center;
       background-color: white;
-      padding: 10px 0;
+      padding: 10px 5px;
       border-radius: 0 0 20px 20px;
 
       text {
@@ -135,7 +179,18 @@
       background-color: white;
 
       .cart_top {
+        display: flex;
+        justify-content: space-between;
         margin-bottom: 10px;
+        .left{
+          display: flex;
+        align-items: center;  
+        }
+
+        .right {
+          margin-right: 15px;
+
+        }
 
         text {
           vertical-align: middle;

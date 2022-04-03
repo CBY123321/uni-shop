@@ -30,4 +30,4 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow:hidden;
-     
+    10.判断是否为空对象可以使用JSON.stringfy(address)==='{}'
