@@ -9,7 +9,7 @@
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ 5);var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 6));
 var _requestMiniprogram = __webpack_require__(/*! @escook/request-miniprogram */ 12);
-var _index = _interopRequireDefault(__webpack_require__(/*! ./store/index.js */ 123));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./store/index.js */ 13));
 
 
 

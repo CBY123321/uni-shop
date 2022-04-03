@@ -103,7 +103,8 @@
         if (e.index == 0) {
           const good = {
             id: this.id,
-            count: 1
+            count: 1,
+            state:0
           };
           this.getCart(good)
         }

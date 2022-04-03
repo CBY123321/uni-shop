@@ -8,4 +8,5 @@ router.get('/getSearchList',user_handler.getSearchList)
 router.get('/getGoodsList',user_handler.getGoodsList)
 router.get('/getDetailSwiper',user_handler.getDetailSwiper)
 router.get('/getDetailMsg',user_handler.getDetailMsg)
+router.get('/getCartMsg',user_handler.getCartMsg)
 module.exports = router;

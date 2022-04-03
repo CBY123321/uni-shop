@@ -25,5 +25,9 @@
       immediate: true
    }
     8.能够对vueX中的state,mutations,actions,getters进行自由的使用
-    
+    9.实现文章内容只显示两行，其余部分用省略号代替  
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow:hidden;
      

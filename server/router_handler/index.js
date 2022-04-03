@@ -78,3 +78,9 @@ exports.getDetailMsg = (req, res) => {
     res.cc(results, 0)
   })
 }
+exports.getCartMsg=(req,res)=>{
+  sql="SELECT message.img,message.id,message.name,brand.brand,message.price,message.desc FROM `uni-ele`.message right join `uni-ele`.brand on message.brand=brand.bid where message.id =?";
+  db.query(sql,req.query.id,(err,results)=>{
+    res.cc(results,0)
+  })
+}
