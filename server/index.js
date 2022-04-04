@@ -11,7 +11,9 @@ app.use((req, res, next) => {
   next();
 });
 app.use(cors());
+const userRouter = require("./router/user.js");
 const workRouter = require("./router/index.js");
+app.use("/api", userRouter);
 app.use("/my", workRouter);
 app.listen(5000, () => {
   console.log("api server running at http://127.0.0.1:5000");

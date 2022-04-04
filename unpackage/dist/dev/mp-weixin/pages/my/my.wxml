@@ -1,1 +1,1 @@
-<view></view>
+<view class="container"><block wx:if="{{$root.g0=='{}'}}"><view class="loginFail"><button type="default" data-event-opts="{{[['tap',[['getUserInfo',['$event']]]]]}}" bindtap="__e">一键登录</button></view></block><block wx:else><view class="loginSucc"><image src="{{userInfo.avatarUrl}}" mode></image><view class="name">{{'ID:'+userInfo.nickName+''}}</view></view></block></view>
