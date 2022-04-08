@@ -18,13 +18,13 @@ ID:{{userInfo.nickName}}
     data() {
       return {
         userInfo: {
-          avatarUrl: "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIowbz5xxVOJa0hL3EScFqPiaTFicEUUM36SZ90Oe1UEcu4qk6Nib9n14ppDtARZsujYhlC4eCM9E1Rg/132",
-          city: "",
-          country: "",
-          gender: 0,
-          language: "zh_CN",
-          nickName: "早点早点",
-          province: "",
+          // avatarUrl: "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIowbz5xxVOJa0hL3EScFqPiaTFicEUUM36SZ90Oe1UEcu4qk6Nib9n14ppDtARZsujYhlC4eCM9E1Rg/132",
+          // city: "",
+          // country: "",
+          // gender: 0,
+          // language: "zh_CN",
+          // nickName: "早点早点",
+          // province: "",
         }
       }
     },
